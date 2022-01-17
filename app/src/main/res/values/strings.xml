@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">What I am?</string>
+    <string name="hours">h</string>
+    <string name="minutes">min</string>
+    <string name="seconds">s</string>
+    <string name="days">d</string>
+    <string name="is_boy">Boy</string>
+    <string name="is_girl">Girl</string>
+    <string name="what_is">Our baby is</string>
+    <string name="no_binary">Exception</string>
+</resources>

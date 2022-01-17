@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">O que eu sou?</string>
+    <string name="hours">h</string>
+    <string name="minutes">min</string>
+    <string name="seconds">s</string>
+    <string name="days">d</string>
+    <string name="is_boy">Menino</string>
+    <string name="is_girl">Menina</string>
+    <string name="what_is">Nosso baby é</string>
+    <string name="no_binary">Exception</string>
+</resources>
