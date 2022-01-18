@@ -6,6 +6,7 @@ import android.os.Handler
 import android.view.View
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentContainerView
+import androidx.fragment.app.FragmentTransaction
 import br.com.jdscaram.whatiam.R
 import br.com.jdscaram.whatiam.presentation.main.MainFragment
 import com.airbnb.lottie.LottieAnimationView
@@ -39,8 +40,15 @@ class MainActivity : AppCompatActivity() {
             animation.visibility = View.GONE
             container.visibility = View.VISIBLE
             supportFragmentManager.beginTransaction()
+                .setCustomAnimations(
+                    R.anim.enter_right_to_left,
+                    R.anim.exit_right_to_left,
+                    R.anim.enter_left_to_right,
+                    R.anim.enter_right_to_left
+                )
                 .replace(container.id, MainFragment.newInstance())
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .commitNow()
-        }, 3000)
+        }, 2500)
     }
 }

@@ -23,6 +23,7 @@ class MainFragment : Fragment() {
     private lateinit var countDownView: CountdownView
     private lateinit var genderAnimation: LottieAnimationView
     private lateinit var description: TextView
+    private lateinit var title: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +33,7 @@ class MainFragment : Fragment() {
         countDownView = view.findViewById(R.id.countdownView)
         genderAnimation = view.findViewById(R.id.gender_animation)
         description = view.findViewById(R.id.description)
+        title = view.findViewById(R.id.title)
         return view
     }
 
@@ -56,6 +58,7 @@ class MainFragment : Fragment() {
     private fun onGenderRevelation(gender: GenderUiModel?) {
         gender?.let { uiModel ->
             countDownView.visibility = View.GONE
+            title.visibility = View.VISIBLE
             genderAnimation.visibility = View.VISIBLE
             description.text = getString(uiModel.descriptionRes)
             description.setTextColor(ContextCompat.getColor(requireContext(), uiModel.color))

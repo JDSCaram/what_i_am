@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/scene_animation_scene">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cloud_one"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cloud"
+        tools:layout_editor_absoluteX="68dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cloud_two"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cloud"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cloud_three"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cloud"
+        tools:layout_editor_absoluteX="101dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cloud_four"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cloud"
+        tools:layout_editor_absoluteX="101dp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/bird"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/cegonha"
+        tools:layout_editor_absoluteX="411dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
