@@ -10,8 +10,8 @@ class RemoteConfigImpl @Inject constructor(
     private val remoteConfig: FirebaseRemoteConfig
 ) : RemoteConfig {
     override fun getRevelationDate(): Long {
-        val revelationDate = Date().time + TimeUnit.SECONDS.toMillis(20) // ta acabando
-//        val revelationDate = remoteConfig.getLong("revelation_date")
+//        val revelationDate = Date().time + TimeUnit.SECONDS.toMillis(20) // ta acabando
+        val revelationDate = remoteConfig.getLong("revelation_date")
         val currentDateTime = Date().time
         return revelationDate.minus(currentDateTime)
     }

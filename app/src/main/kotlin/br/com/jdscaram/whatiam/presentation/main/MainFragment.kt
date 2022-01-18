@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.constraintlayout.widget.Group
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import br.com.jdscaram.whatiam.R
@@ -29,6 +30,7 @@ class MainFragment : Fragment() {
     private lateinit var motionLayout: MotionLayout
     private lateinit var lastCountdown: MotionLayout
     private lateinit var sceneFinal: MotionLayout
+    private lateinit var finalGroup: Group
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +45,7 @@ class MainFragment : Fragment() {
         finalCountdown = lastCountdown.findViewById(R.id.final_countdown_text)
         motionLayout = view.findViewById(R.id.scene_layout)
         sceneFinal = view.findViewById(R.id.scene_final)
-
+        finalGroup = view.findViewById(R.id.reveal_group)
         return view
     }
 
@@ -52,7 +54,7 @@ class MainFragment : Fragment() {
         viewModel.countDownTime.observe(viewLifecycleOwner) { time ->
             countDownView.visibility = View.VISIBLE
             if (time <= 0L) {
-                viewModel.onCountdownIsOver()
+                revealGender()
             } else {
                 countDownView.start(time)
             }
@@ -65,7 +67,7 @@ class MainFragment : Fragment() {
             if (remainTime <= 0) {
                 revealGender()
             } else if (remainTime < LAST_11sec) {
-                countDownView.visibility = View.INVISIBLE
+                countDownView.visibility = View.GONE
                 finalCountdown.visibility = View.VISIBLE
                 lastCountdown.visibility = View.VISIBLE
                 finalCountdown.text = "$remainTime"
@@ -78,6 +80,7 @@ class MainFragment : Fragment() {
         finalCountdown.visibility = View.GONE
         lastCountdown.visibility = View.GONE
         countDownView.visibility = View.GONE
+
         sceneFinal.visibility = View.VISIBLE
         sceneFinal.setTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionStarted(
@@ -118,8 +121,7 @@ class MainFragment : Fragment() {
 
     private fun onGenderRevelation(gender: GenderUiModel?) {
         gender?.let { uiModel ->
-            title.visibility = View.VISIBLE
-            genderAnimation.visibility = View.VISIBLE
+            finalGroup.visibility = View.VISIBLE
             description.text = getString(uiModel.descriptionRes)
             description.setTextColor(ContextCompat.getColor(requireContext(), uiModel.color))
         }
