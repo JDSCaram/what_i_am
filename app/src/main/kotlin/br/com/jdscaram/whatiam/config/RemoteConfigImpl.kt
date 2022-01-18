@@ -3,14 +3,15 @@ package br.com.jdscaram.whatiam.config
 import br.com.jdscaram.whatiam.domain.Gender
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class RemoteConfigImpl @Inject constructor(
     private val remoteConfig: FirebaseRemoteConfig
 ) : RemoteConfig {
     override fun getRevelationDate(): Long {
-//        val revelationDate = 1642371285000 // ja acabou
-        val revelationDate = remoteConfig.getLong("revelation_date")
+        val revelationDate = Date().time + TimeUnit.SECONDS.toMillis(20) // ta acabando
+//        val revelationDate = remoteConfig.getLong("revelation_date")
         val currentDateTime = Date().time
         return revelationDate.minus(currentDateTime)
     }

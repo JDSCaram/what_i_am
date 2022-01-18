@@ -89,5 +89,11 @@
         motion:autoTransition="animateToEnd"
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@+id/start"
-        motion:duration="25000" />
+        motion:duration="20000" />
+    <Transition
+        motion:constraintSetStart="@+id/end"
+        motion:constraintSetEnd="@+id/start"
+        motion:autoTransition="jumpToEnd"
+        motion:duration="5000"
+        />
 </MotionScene>
