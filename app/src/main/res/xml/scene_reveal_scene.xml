@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:autoTransition="animateToEnd"
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="2500"
+        motion:motionInterpolator="bounce">
+        <KeyFrameSet></KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/bg_boy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/bg_girl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/bg_boy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintWidth_percent="0.5" />
+        <Constraint
+            android:id="@+id/bg_girl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintWidth_percent="0.5"
+            motion:layout_editor_absoluteX="411dp" />
+    </ConstraintSet>
+    <ConstraintSet
+        android:id="@+id/girl_to_left"
+        motion:deriveConstraintsFrom="@+id/end">
+        <Constraint
+            android:id="@+id/bg_girl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintWidth_percent="1" />
+        <Constraint
+            motion:layout_constraintWidth_percent="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/bg_boy"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+    <Transition
+        motion:autoTransition="animateToEnd"
+        motion:constraintSetEnd="@+id/girl_to_left"
+        motion:constraintSetStart="@+id/end"
+        motion:duration="500"
+        />
+    <ConstraintSet
+        android:id="@+id/boy_and_girl_to_top"
+        motion:deriveConstraintsFrom="@+id/girl_to_left">
+        <Constraint
+            android:id="@+id/bg_girl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/bg_boy"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintEnd_toEndOf="@+id/bg_girl"
+            motion:layout_constraintBottom_toTopOf="parent" />
+    </ConstraintSet>
+    <Transition
+        motion:autoTransition="animateToEnd"
+        motion:constraintSetEnd="@+id/boy_and_girl_to_top"
+        motion:constraintSetStart="@+id/girl_to_left"
+        motion:duration="500"
+        />
+    <ConstraintSet
+        android:id="@+id/boy_to_bottom"
+        motion:deriveConstraintsFrom="@+id/boy_and_girl_to_top" >
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@+id/bg_girl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/bg_boy"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toTopOf="parent"
+            android:id="@+id/bg_girl"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetStart="@+id/boy_and_girl_to_top"
+        motion:constraintSetEnd="@+id/boy_to_bottom"
+        motion:autoTransition="animateToEnd"
+        motion:duration="500"/>
+    <ConstraintSet
+        android:id="@+id/girl_to_bottom"
+        motion:deriveConstraintsFrom="@+id/boy_to_bottom" >
+        <Constraint
+            android:id="@+id/bg_boy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/bg_girl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetStart="@+id/boy_to_bottom"
+        motion:constraintSetEnd="@+id/girl_to_bottom"
+        motion:autoTransition="animateToEnd"
+        motion:duration="500"/>
+    <ConstraintSet
+        android:id="@+id/last_scene"
+        motion:deriveConstraintsFrom="@+id/end" />
+    <Transition
+        motion:constraintSetStart="@+id/girl_to_bottom"
+        motion:constraintSetEnd="@+id/last_scene"
+        motion:autoTransition="animateToEnd"
+        motion:duration="500"/>
+    <ConstraintSet
+        android:id="@+id/open_and_reveal"
+        motion:deriveConstraintsFrom="@+id/start" />
+    <Transition
+        motion:constraintSetStart="@+id/last_scene"
+        motion:constraintSetEnd="@+id/open_and_reveal"
+        motion:autoTransition="animateToEnd"
+        motion:motionInterpolator="bounce"
+        motion:duration="2500"/>
+</MotionScene>

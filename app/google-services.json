@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "350671004349",
+    "project_id": "what-i-am",
+    "storage_bucket": "what-i-am.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350671004349:android:50a590fb5f644bd3ba8dd4",
+        "android_client_info": {
+          "package_name": "br.com.jdscaram.whatiam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350671004349-6t6q0f7v9h8npeskfvtpu44kjsrf3v8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmhz12hjMG_HT4ndVhcYpXDbTWZdlYEy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350671004349-6t6q0f7v9h8npeskfvtpu44kjsrf3v8t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

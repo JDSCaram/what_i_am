@@ -15,7 +15,7 @@ import cn.iwgang.countdownview.CountdownView
 import com.airbnb.lottie.LottieAnimationView
 import dagger.hilt.android.AndroidEntryPoint
 
-private const val LAST_15sec = 15
+private const val LAST_11sec = 11
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -28,6 +28,7 @@ class MainFragment : Fragment() {
     private lateinit var title: TextView
     private lateinit var motionLayout: MotionLayout
     private lateinit var lastCountdown: MotionLayout
+    private lateinit var sceneFinal: MotionLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +42,7 @@ class MainFragment : Fragment() {
         lastCountdown = view.findViewById(R.id.final_countdown)
         finalCountdown = lastCountdown.findViewById(R.id.final_countdown_text)
         motionLayout = view.findViewById(R.id.scene_layout)
+        sceneFinal = view.findViewById(R.id.scene_final)
 
         return view
     }
@@ -61,8 +63,8 @@ class MainFragment : Fragment() {
         countDownView.setOnCountdownIntervalListener(1000) { cv, time ->
             val remainTime = (time / 1000).toInt()
             if (remainTime <= 0) {
-                viewModel.onCountdownIsOver()
-            } else if (remainTime < LAST_15sec) {
+                revealGender()
+            } else if (remainTime < LAST_11sec) {
                 countDownView.visibility = View.INVISIBLE
                 finalCountdown.visibility = View.VISIBLE
                 lastCountdown.visibility = View.VISIBLE
@@ -71,12 +73,51 @@ class MainFragment : Fragment() {
         }
     }
 
+    private fun revealGender() {
+        motionLayout.visibility = View.GONE
+        finalCountdown.visibility = View.GONE
+        lastCountdown.visibility = View.GONE
+        countDownView.visibility = View.GONE
+        sceneFinal.visibility = View.VISIBLE
+        sceneFinal.setTransitionListener(object : MotionLayout.TransitionListener {
+            override fun onTransitionStarted(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int
+            ) {
+                // do nothing
+            }
+
+            override fun onTransitionChange(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int,
+                progress: Float
+            ) {
+                // do nothing
+            }
+
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                if (currentId == R.id.last_scene) {
+                    viewModel.onCountdownIsOver()
+                }
+            }
+
+            override fun onTransitionTrigger(
+                motionLayout: MotionLayout?,
+                triggerId: Int,
+                positive: Boolean,
+                progress: Float
+            ) {
+                // do nothing
+            }
+
+        })
+
+    }
+
     private fun onGenderRevelation(gender: GenderUiModel?) {
         gender?.let { uiModel ->
-            motionLayout.visibility = View.GONE
-            finalCountdown.visibility = View.GONE
-            lastCountdown.visibility = View.GONE
-            countDownView.visibility = View.GONE
             title.visibility = View.VISIBLE
             genderAnimation.visibility = View.VISIBLE
             description.text = getString(uiModel.descriptionRes)
