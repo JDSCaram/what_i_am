@@ -23,7 +23,6 @@ class MainFragment : Fragment() {
 
     private val viewModel: MainViewModel by viewModels()
     private lateinit var countDownView: CountdownView
-    private lateinit var hourglassAnimation: LottieAnimationView
     private lateinit var genderAnimation: LottieAnimationView
     private lateinit var description: TextView
     private lateinit var finalCountdown: TextView
