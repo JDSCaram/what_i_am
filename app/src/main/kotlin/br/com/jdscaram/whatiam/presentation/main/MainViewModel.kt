@@ -28,9 +28,13 @@ class MainViewModel @Inject constructor(
 
     fun onCountdownIsOver() {
         val uiModel = when (remoteConfig.getGender()) {
-            Gender.FEMALE -> GenderUiModel(R.string.is_girl, R.color.girl_color)
-            Gender.MALE -> GenderUiModel(R.string.is_boy, R.color.boy_color)
-            else -> GenderUiModel(R.string.no_binary, R.color.white)
+            Gender.FEMALE -> GenderUiModel(
+                titleRes = R.string.what_is_girl,
+                descriptionRes = R.string.is_girl,
+                color = R.color.girl_color
+            )
+            Gender.MALE -> GenderUiModel(R.string.what_is_boy, R.string.is_boy, R.color.boy_color)
+            else -> GenderUiModel(R.string.what_is_error, R.string.no_binary, R.color.white)
         }
         gender.postValue(uiModel)
     }

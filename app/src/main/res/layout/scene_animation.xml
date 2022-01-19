@@ -8,7 +8,7 @@
     app:layoutDescription="@xml/scene_animation_scene">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/cloud_one"
+        android:id="@+id/cloud_one_top"
         android:layout_width="400dp"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
@@ -17,7 +17,7 @@
         tools:layout_editor_absoluteX="68dp" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/cloud_two"
+        android:id="@+id/cloud_two_top"
         android:layout_width="400dp"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
@@ -26,7 +26,7 @@
         tools:layout_editor_absoluteX="3dp" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/cloud_three"
+        android:id="@+id/cloud_three_top"
         android:layout_width="400dp"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
@@ -35,7 +35,7 @@
         tools:layout_editor_absoluteX="101dp" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/cloud_four"
+        android:id="@+id/cloud_four_top"
         android:layout_width="400dp"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
@@ -44,12 +44,58 @@
         tools:layout_editor_absoluteX="101dp" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/bird"
+        android:id="@+id/bird_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/cegonha"
+        tools:layout_editor_absoluteX="411dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cloud_one_bottom"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_cloud"
+        tools:layout_editor_absoluteX="68dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cloud_two_bottom"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_cloud"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cloud_three_bottom"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_cloud"
+        tools:layout_editor_absoluteX="101dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cloud_four_bottom"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_cloud"
+        tools:layout_editor_absoluteX="101dp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/airplane"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/airplane"
         tools:layout_editor_absoluteX="411dp"
         tools:layout_editor_absoluteY="120dp" />
 

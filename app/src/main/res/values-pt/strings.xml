@@ -7,6 +7,8 @@
     <string name="days">d</string>
     <string name="is_boy">Menino</string>
     <string name="is_girl">Menina</string>
-    <string name="what_is">Nosso baby é</string>
+    <string name="what_is_error">Cadê o bebê???</string>
+    <string name="what_is_boy">Nosso baby é um</string>
+    <string name="what_is_girl">Nosso baby é uma</string>
     <string name="no_binary">Exception</string>
 </resources>

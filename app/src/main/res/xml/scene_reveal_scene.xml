@@ -6,9 +6,8 @@
         motion:autoTransition="animateToEnd"
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="2500"
+        motion:duration="1200"
         motion:motionInterpolator="bounce">
-        <KeyFrameSet></KeyFrameSet>
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -158,5 +157,5 @@
         motion:constraintSetEnd="@+id/open_and_reveal"
         motion:autoTransition="animateToEnd"
         motion:motionInterpolator="bounce"
-        motion:duration="2500"/>
+        motion:duration="1700"/>
 </MotionScene>

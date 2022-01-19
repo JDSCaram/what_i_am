@@ -23,6 +23,7 @@ class MainFragment : Fragment() {
 
     private val viewModel: MainViewModel by viewModels()
     private lateinit var countDownView: CountdownView
+    private lateinit var hourglassAnimation: LottieAnimationView
     private lateinit var genderAnimation: LottieAnimationView
     private lateinit var description: TextView
     private lateinit var finalCountdown: TextView
@@ -122,6 +123,7 @@ class MainFragment : Fragment() {
     private fun onGenderRevelation(gender: GenderUiModel?) {
         gender?.let { uiModel ->
             finalGroup.visibility = View.VISIBLE
+            title.text = getString(uiModel.titleRes)
             description.text = getString(uiModel.descriptionRes)
             description.setTextColor(ContextCompat.getColor(requireContext(), uiModel.color))
         }
