@@ -122,6 +122,7 @@ class MainFragment : Fragment() {
     private fun onGenderRevelation(gender: GenderUiModel?) {
         gender?.let { uiModel ->
             finalGroup.visibility = View.VISIBLE
+            title.text = getString(uiModel.titleRes)
             description.text = getString(uiModel.descriptionRes)
             description.setTextColor(ContextCompat.getColor(requireContext(), uiModel.color))
         }
