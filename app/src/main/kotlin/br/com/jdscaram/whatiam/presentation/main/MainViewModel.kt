@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.jdscaram.whatiam.R
-import br.com.jdscaram.whatiam.config.RemoteConfig
 import br.com.jdscaram.whatiam.domain.Gender
+import br.com.jdscaram.whatiam.domain.MainRepository
 import br.com.jdscaram.whatiam.presentation.main.model.GenderUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val remoteConfig: RemoteConfig
+    private val mainRepository: MainRepository
 ) : ViewModel() {
 
     val countDownTime = MutableLiveData<Long>()
@@ -21,13 +21,13 @@ class MainViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val revelationDate = remoteConfig.getRevelationDate()
+            val revelationDate = mainRepository.getRevealDateTime()
             countDownTime.postValue(revelationDate)
         }
     }
 
     fun onCountdownIsOver() {
-        val uiModel = when (remoteConfig.getGender()) {
+        val uiModel = when (mainRepository.getGender()) {
             Gender.FEMALE -> GenderUiModel(R.string.is_girl, R.color.girl_color)
             Gender.MALE -> GenderUiModel(R.string.is_boy, R.color.boy_color)
             else -> GenderUiModel(R.string.no_binary, R.color.white)

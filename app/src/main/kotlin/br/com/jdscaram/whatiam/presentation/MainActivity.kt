@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction
 import br.com.jdscaram.whatiam.R
 import br.com.jdscaram.whatiam.presentation.main.MainFragment
 import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieDrawable
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,10 +27,13 @@ class MainActivity : AppCompatActivity() {
             container = findViewById(R.id.container)
             animation = findViewById(R.id.animation)
             viewModel.isSuccessRemoteConfig().observe(this) { isSuccessful ->
+                animation.visibility = View.VISIBLE
                 if (isSuccessful) {
                     initMainFragment()
                 } else {
+                    animation.repeatCount = LottieDrawable.INFINITE
                     animation.setAnimation(R.raw.error)
+                    animation.playAnimation()
                 }
             }
         }
